@@ -27,20 +27,20 @@
         <tr th:each="p : ${products}">
             <td th:text="${p.id}"></td>
             <td th:text="${p.title}"></td>
-            <td th:text="${'C: ' + p.prise}"></td>
-            <td><a class="btn btn-danger" th:href="@{'/boxes/remove/' + ${b.id}}">Удалить</a></td>
+            <td th:text="${p.cost}"></td>
+            <td><a class="btn btn-danger" th:href="@{'/delete_product/' + ${p.id}}">Удалить</a></td>
         </tr>
         </tbody>
     </table>
     <span th:text="'Количество коробок: ' + ${products.size()}"/>
-    <form th:action="@{'/products/add'}" method="post">
+    <form th:action="@{'/add'}" method="post">
         <!-- GET http://localhost:8189/app/products/add?id=10&color=red&size=20 -->
         <label>id</label>
         <input type="number" name="id">
         <label>Наименование</label>
         <input type="text" name="title">
         <label>Цена</label>
-        <input type="number" name="price">
+        <input type="number" name="cost">
         <button class="btn btn-primary" type="submit">Создать</button>
     </form>
 </body>
