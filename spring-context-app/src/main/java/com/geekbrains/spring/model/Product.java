@@ -1,6 +1,4 @@
-package com.geekbrains.spring.context.app;
-
-import org.springframework.stereotype.Component;
+package com.geekbrains.spring.model;
 
 public class Product {
     private Long id;

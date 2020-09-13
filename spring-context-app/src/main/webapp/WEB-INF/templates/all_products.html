@@ -12,35 +12,35 @@
 </head>
 
 <body>
-    <h1>Список коробок:</h1>
+    <h1>Список продуктов:</h1>
     <table class="table">
         <thead>
         <tr>
             <td>Id</td>
-            <td>Цвет</td>
-            <td>Размер</td>
+            <td>Наименование</td>
+            <td>Цена</td>
             <td>Действия</td>
         </tr>
         </thead>
         <tbody>
 
-        <tr th:each="b : ${frontBoxes}">
-            <td th:text="${b.id}"></td>
-            <td th:text="${b.color}"></td>
-            <td th:text="${'C: ' + b.size}"></td>
+        <tr th:each="p : ${products}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.title}"></td>
+            <td th:text="${'C: ' + p.prise}"></td>
             <td><a class="btn btn-danger" th:href="@{'/boxes/remove/' + ${b.id}}">Удалить</a></td>
         </tr>
         </tbody>
     </table>
-    <span th:text="'Количество коробок: ' + ${frontBoxes.size()}"/>
-    <form th:action="@{'/boxes/add'}" method="post">
-        <!-- GET http://localhost:8189/app/boxes/add?id=10&color=red&size=20 -->
+    <span th:text="'Количество коробок: ' + ${products.size()}"/>
+    <form th:action="@{'/products/add'}" method="post">
+        <!-- GET http://localhost:8189/app/products/add?id=10&color=red&size=20 -->
         <label>id</label>
         <input type="number" name="id">
-        <label>color</label>
-        <input type="text" name="color">
-        <label>size</label>
-        <input type="number" name="size">
+        <label>Наименование</label>
+        <input type="text" name="title">
+        <label>Цена</label>
+        <input type="number" name="price">
         <button class="btn btn-primary" type="submit">Создать</button>
     </form>
 </body>

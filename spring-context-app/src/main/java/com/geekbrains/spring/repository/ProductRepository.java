@@ -1,5 +1,6 @@
-package com.geekbrains.spring.context.app;
+package com.geekbrains.spring.repository;
 
+import com.geekbrains.spring.model.Product;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -9,7 +10,7 @@ import java.util.List;
 @Component
 public class ProductRepository {
     private List<Product> products;
-    private Long maxId;
+
     @PostConstruct
     public void init() {
         this.products = new ArrayList<>();
@@ -18,6 +19,7 @@ public class ProductRepository {
         this.products.add(new Product(20L, "nog", 15L));
         this.products.add(new Product(1L, "pila", 235L));
         this.products.add(new Product(12L, "molotok", 512L));
+
     }
     public Product findById(Long id) {
         for (Product product : products) {
@@ -29,5 +31,13 @@ public class ProductRepository {
     }
     public List<Product> findAll() {
         return Collections.unmodifiableList(products);
+    }
+    public void save(Product box) {
+
+        products.add(box);
+    }
+
+    public void deleteById(Long id) {
+        products.removeIf(p -> p.getId().equals(id));
     }
 }
