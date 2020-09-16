@@ -16,18 +16,17 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    public String getAllBoxes(Model model) {
+    public String getAllProducts(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "all_products";
     }
     @PostMapping("/add")
-//    public String addNewBox(@RequestParam Long id, @RequestParam String color, @RequestParam int size) {
-    public String addNewBox(@ModelAttribute Product product) {
+    public String addNewProduct(@ModelAttribute Product product) {
         productService.save(product);
         return "redirect:/all";
     }
     @GetMapping("/delete_product/{id}")
-    public String deleteBox(@PathVariable Long id) {
+    public String deleteProduct(@PathVariable Long id) {
         productService.deleteById(id);
         return "redirect:/all";
     }
