@@ -17,12 +17,15 @@ public class MainApp {
 
             session = factory.getCurrentSession();
             session.beginTransaction();
-            //User user = session.get(User.class, 1L);
-            //System.out.println(user);
+            User user = session.get(User.class, 2L);
+           // System.out.println(user);
 
-           // Product product = session.get(Product.class, 1L);
-           // System.out.println(product);
-
+//            Product product = session.get(Product.class, 1L);
+//            System.out.println(product);
+//
+//            user.buy(product);
+//            System.out.println(user);
+//
             session.getTransaction().commit();
 
         } catch (Exception e) {

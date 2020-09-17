@@ -3,7 +3,7 @@ package com.geekbrains.spring.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +12,7 @@ public class Product {
 
     @Column(name = "title")
     private String title;
+
     @Column(name = "cost")
     private Long cost;
 

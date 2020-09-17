@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -19,10 +19,6 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-
-    @OneToMany
-    @JoinColumn(name = "product_id")
-    private List<Product> products;
 
     @Column(name = "name")
     private String name;
@@ -40,6 +36,7 @@ public class User {
 
     @Override
     public String toString() {
-        return ("Item id = " + id + "; name = " + name);
+        return ("Item id = " + id + "; name = " + name+";");
     }
+
 }
