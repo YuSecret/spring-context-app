@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Users")
 public class User {
-    @ManyToMany
+    //@ManyToMany
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
