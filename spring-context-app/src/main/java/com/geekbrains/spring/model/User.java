@@ -1,11 +1,12 @@
 package com.geekbrains.spring.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
 public class User {
-    //@ManyToMany
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -18,6 +19,10 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @OneToMany
+    @JoinColumn(name = "product_id")
+    private List<Product> products;
 
     @Column(name = "name")
     private String name;

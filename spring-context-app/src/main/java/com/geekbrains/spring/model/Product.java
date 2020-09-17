@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Products")
 public class Product {
-   // @ManyToMany
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
