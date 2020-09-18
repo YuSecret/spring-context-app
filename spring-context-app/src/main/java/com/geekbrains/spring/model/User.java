@@ -18,7 +18,7 @@ public class User {
     @JoinTable(
             name = "users_products",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "products_id")
+            inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private List<Product> products;
 

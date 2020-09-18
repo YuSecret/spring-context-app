@@ -19,12 +19,16 @@ public class MainApp {
             session.beginTransaction();
 
             User user = session.get(User.class, 2L);
+            System.out.println("---user---");
             System.out.println(user);
+            System.out.println("---user products---");
             System.out.println(user.getProducts());
 
-            /*Product product = session.get(Product.class, 15L);
+            Product product = session.get(Product.class, 15L);
+            System.out.println("---product---");
             System.out.println(product);
-            System.out.println(product.getUsers());*/
+            System.out.println("---product users---");
+            System.out.println(product.getUsers());
 
             session.getTransaction().commit();
 
