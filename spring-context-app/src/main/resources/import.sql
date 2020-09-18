@@ -11,6 +11,6 @@ CREATE TABLE IF NOT EXISTS users (id serial, name VARCHAR(255), PRIMARY KEY (id)
 INSERT INTO users (id, name) VALUES (2,'Bob');
 INSERT INTO users (id, name) VALUES (3,'Vasya');
 
-CREATE TABLE users_products(product_id integer REFERENCES products (id), user_id integer REFERENCES users (id));
+CREATE TABLE users_products(user_id integer REFERENCES users(id), product_id integer REFERENCES products(id));
 INSERT INTO users_products(user_id, product_id) VALUES (2,15);
 
