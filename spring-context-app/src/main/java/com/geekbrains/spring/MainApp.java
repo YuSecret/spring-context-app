@@ -20,7 +20,7 @@ public class MainApp {
 
             User user = session.get(User.class, 2L);
             System.out.println(user);
-            //System.out.println(user.getProducts());
+            System.out.println(user.getProducts());
 
             /*Product product = session.get(Product.class, 15L);
             System.out.println(product);
