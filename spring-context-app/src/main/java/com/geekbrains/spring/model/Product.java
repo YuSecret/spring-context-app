@@ -1,21 +1,49 @@
 package com.geekbrains.spring.model;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "products")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "cost")
     private Long cost;
 
-    public Product(Long id, String title, Long cost) {
+    @ManyToMany
+    @JoinTable(
+            name = "users_products",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> users;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(long id) {
         this.id = id;
-        this.title = title;
-        this.cost = cost;
     }
 
     public Product() {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getTitle() {return title;}
+
+    public Long getCost() {
+        return cost;
     }
 
     public void setTitle(String title) {
@@ -24,18 +52,6 @@ public class Product {
 
     public void setCost(long cost) {
         this.cost = cost;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public Long getCost() {
-        return cost;
     }
 
     @Override
